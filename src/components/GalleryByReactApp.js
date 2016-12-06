@@ -25,7 +25,7 @@ class GalleryByReactApp extends React.Component {
   render() {
     return (
      	<section className="stage">
-     		<section className="img-sec"></section>
+     		<section className="img-sec">舞台</section>
      		<nav className="controller-nav"></nav>
      	</section>
     );
