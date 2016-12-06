@@ -1,5 +1,5 @@
 require('normalize.css/normalize.css');
-require('../styles/main.css')
+require('../styles/main.scss')
 
 import React from 'react';
 
@@ -19,14 +19,40 @@ imageDatas=(function genImageURL(imageDatasArr) {
 	return imageDatasArr;
 })(imageDatas);
 
+//单个图片的组件，切记组件的名称要大写
+class ImgFigure extends React.Component{
+	render(){
+		return(
+			<figure className="img-figure">
+				<img src={this.props.data.imageURL} 
+					 alt={this.props.data.title}/>
+				<figcaption>
+					<h2 className="img-title">{this.props.data.title}</h2>
+				</figcaption>
+			</figure>
+		);
+	}
+}
 
 
 class GalleryByReactApp extends React.Component {
   render() {
+	var controllerUnits=[],
+		imgFigures=[];
+
+	imageDatas.forEach(function (value) {
+		imgFigures.push(<ImgFigure data={value} />);
+	});
+
+
     return (
      	<section className="stage">
-     		<section className="img-sec">舞台</section>
-     		<nav className="controller-nav"></nav>
+     		<section className="img-sec">
+				{imgFigures}
+     		</section>
+     		<nav className="controller-nav">
+				{controllerUnits}
+     		</nav>
      	</section>
     );
   }

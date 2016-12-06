@@ -26,6 +26,32 @@ html,body{
 	overflow: hidden;
 
 	background-color: #ddd;
+	
+	//作用，是在最终生成的css文件中，将这些样式提取到最外部，减少层级关系
+	@at-root{
+		.img-figure{
+			position: absolute;
+			width:320px;
+			height: 360px;
+			margin: 0;
+			padding: 40px;
+			background-color: #fff;
+
+			box-sizing:border-box;
+		}
+
+		figcaption{
+			text-align: center;
+
+			.img-title{
+				margin:20px 0 0 0;
+
+				color:#a7a0a2;
+				font-size:16px;
+			}
+		}
+	}
+	
 }
 /*image--end*/
 
