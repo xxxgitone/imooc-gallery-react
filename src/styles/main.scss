@@ -1,3 +1,13 @@
+@font-face {
+  font-family: 'icomoon';
+  // src:  url('../fonts/icomoon.eot') format('embedded-opentype'),
+  //   url('../fonts/icomoon.ttf') format('truetype'),
+   src:  url('../fonts/icomoon.woff') format('woff');
+    // url('../fonts/icomoon.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html,body{
 	background-color: #222;
 	width: 100%;
@@ -100,6 +110,52 @@ html,body{
 	z-index: 101;
 	width: 100%;
 	text-align:center;
+	//background: red;
+
+	@at-root{
+		.controller-unit{
+			display: inline-block;
+			margin: 0 5px;
+			width:30px;
+			height: 30px;
+			border-radius: 50%;
+			
+			vertical-align: middle;
+			text-align: center;
+			cursor: pointer;
+			background-color: #aaa;
+			
+			transform:scale(.5);
+			transition:transform .6s ease-in-out,background-color .3s;
+
+			&.is-center{
+				transform:scale(1);
+				background-color: #888;
+
+				&::after{
+					content: '\e965';
+				    font-family: 'icomoon';
+				    font-size: 80%;
+				    display: inline-block;
+				    line-height: 30px;
+				    text-align: center;
+				    color: #fff;
+
+				    -webkit-font-smoothing:antialiased;
+				}
+			}
+
+			&.is-inverse{
+				background-color: #555;
+
+				transform:rotateY(180deg);
+			}
+
+			
+
+		}
+	}
+
 }
 /*controller--end*/
 

@@ -93,7 +93,27 @@ class ImgFigure extends React.Component{
 		);
 	}
 }
+// 控制组件
+class ControllerUnit extends React.Component{
+	constructor(){
+		super();
+		this.handleClick=this.handleClick.bind(this);
+	}
 
+	handleClick(e){
+		e.stopPropagation();
+		e.preventDefault();
+	}
+
+	render() {
+		return (
+			<span className="controller-unit" onClick={this.handleClick}></span>
+		);
+	}
+}
+
+
+//图片组件
 class GalleryByReactApp extends React.Component {
 	
 	constructor(props){
@@ -305,6 +325,7 @@ class GalleryByReactApp extends React.Component {
 								arrange={this.state.imgsArrangeArr[index]} 
 								inverse={this.inverse(index)}
 								center={this.center(index)}/>);
+			controllerUnits.push(<ControllerUnit/>);
 		}.bind(this));
 
 	    return (
